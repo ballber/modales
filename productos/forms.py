@@ -1,7 +1,8 @@
 from django import forms
 from django.forms.models import modelformset_factory, inlineformset_factory
 from productos.models import Producto, Proveedor, Compra, DetalleCompra
-
+from django.forms import ModelForm
+from .models import Post
 
 class ProductoForm(forms.ModelForm):
 

@@ -1,13 +1,18 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+
+from django.shortcuts import get_object_or_404
 from django.views.generic.edit import UpdateView, CreateView
 from django.views.generic.list import ListView
 from productos.forms import ProductoForm, ProveedorForm, CompraForm, DetalleCompraFormSet
-from productos.models import Producto, Proveedor, Compra, DetalleCompra
+from productos.models import Producto, Proveedor, Compra, DetalleCompra, Post
 from django.urls import reverse_lazy
 # from django.core.urlresolvers import reverse_lazy
 from django.views.generic.detail import DetailView
 from django.http.response import HttpResponseRedirect
+
+from django.shortcuts import render, redirect, get_object_or_404
+
 
 class ListadoProductos(ListView):
     model = Producto
@@ -131,3 +136,23 @@ class CrearCompra(CreateView):
     def form_invalid(self, form, detalle_compra_form_set):
         return self.render_to_response(self.get_context_data(form=form,
                                                              detalle_compra_form_set = detalle_compra_form_set))
+
+
+
+def edit(request, pk=None):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == "POST":
+        form = PostForm(request.POST,
+                        instance=post)
+        if form.is_valid():
+            form.save()
+            return redirect('blog_create')
+    else:
+        form = PostForm(instance=post)
+
+    return render(request,
+                  'productos.html',
+                  {
+                      'form': form,
+                      'post': post
+                  })
