@@ -2,6 +2,8 @@ from django.conf.urls import url
 from productos.views import ListadoProductos, CrearProducto, ModificarProducto, DetalleProducto, CrearProveedor, ListadoProveedores, \
     ModificarProveedor, DetalleProveedor, CrearCompra, ModificarCompra, ListadoCompras
 
+app_name = 'productos'
+
 urlpatterns = [
     url(r'^$', ListadoProductos.as_view(), name="listado_productos"),
     url(r'^proveedores/$', ListadoProveedores.as_view(), name="listado_proveedores"),

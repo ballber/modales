@@ -4,7 +4,8 @@ from django.views.generic.edit import UpdateView, CreateView
 from django.views.generic.list import ListView
 from productos.forms import ProductoForm, ProveedorForm, CompraForm, DetalleCompraFormSet
 from productos.models import Producto, Proveedor, Compra, DetalleCompra
-from django.core.urlresolvers import reverse_lazy
+from django.urls import reverse_lazy
+# from django.core.urlresolvers import reverse_lazy
 from django.views.generic.detail import DetailView
 from django.http.response import HttpResponseRedirect
 

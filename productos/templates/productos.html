@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block cuerpo %}
-<h3>Productos</h3>
+
+
+<h3>Crop Settings</h3>
 <div class="row">
 	<div class="col-lg-10">
 		<a onclick="return abrir_modal('{% url 'productos:crear_producto' %}','Productos / Nuevo')" class="btn btn-primary">
@@ -14,20 +16,20 @@
 		<table id="tabla" class="display" cellspacing="0" width="100%">
 			<thead>
 				<tr>
-					<th class="text-center">DESCRIPCION</th>
-					<th class="text-center">MARCA</th>
-					<th class="text-center">PRECIO</th>
-					<th class="text-center">ESTADO</th>
-					<th class="text-center">ACCIONES</th>
+					<th class="text-center">Attribute</th>
+					<th class="text-center">Crop 1</th>
+					<th class="text-center">Crop 2</th>
+					<th class="text-center">Crop 3</th>
+					<th class="text-center">ACCIONS</th>
 				</tr>
 			</thead>
 			<tbody>
 			{% for producto in productos %}
                 <tr>
-                    <td>{{ producto.descripcion }}</td>
-                    <td>{{ producto.marca }}</td>
-                    <td>{{ producto.precio }}</td>
-                    {% if producto.estado %}
+                    <td>{{ producto.attribute }}</td>
+                    <td>{{ producto.crop1 }}</td>
+                    <td>{{ producto.crop2 }}</td>
+                    {% if producto.crop3 %}
                     <td>ACTIVO</td>
                     {% else %}
                     <td>INACTIVO</td>
@@ -47,6 +49,7 @@
 	</div>
 </div>
 <div id="popup"></div>
+
 <script>
 var modal;
 function abrir_modal(url, titulo)
@@ -69,7 +72,8 @@ $(document).ready(function()
 {
     var table = $('#tabla').dataTable( {
         "language": {
-        	url: "/static/localizacion/es_ES.json"
+        	{#url: "/static/localizacion/es_ES.json"#}
+            url: "/static/localizacion/ca_CA.json"
         }
     } );
 });

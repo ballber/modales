@@ -7,12 +7,12 @@ class ProductoForm(forms.ModelForm):
 
     class Meta:
         model = Producto
-        fields = ['descripcion', 'marca', 'precio', 'estado']
+        fields = ['attribute', 'crop1', 'crop2', 'crop3']
 
     def __init__(self, *args, **kwargs):
         super(ProductoForm, self).__init__(*args, **kwargs)
         for field in iter(self.fields):
-            if field <> 'estado':
+            if field != 'estado':
                 self.fields[field].widget.attrs.update({
                     'class': 'form-control'
                 })
@@ -26,7 +26,7 @@ class ProveedorForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(ProveedorForm, self).__init__(*args, **kwargs)
         for field in iter(self.fields):
-            if field <> 'estado':
+            if field != 'estado':
                 self.fields[field].widget.attrs.update({
                     'class': 'form-control'
                 })

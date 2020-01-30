@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{% load staticfiles %}
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -19,18 +19,19 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">PythonPiura</a>
+{#          <a class="navbar-brand" href="#">PythonPiura</a>#}
+            <a class="navbar-brand" href="#">IrriDesk</a>
         </div>
         <ul class="nav navbar-nav">
           <li>
-              <a href="{% url 'productos:listado_productos' %}">Productos</a>
+              <a href="{% url 'productos:listado_productos' %}">FarmSettings</a>
           </li>
-          <li>
-              <a href="{% url 'productos:listado_proveedores' %}">Proveedores</a>
-          </li>
-          <li>
-              <a href="{% url 'productos:listado_compras' %}">Compras</a>
-          </li>
+{#          <li>#}
+{#              <a href="{% url 'productos:listado_proveedores' %}">Proveedores</a>#}
+{#          </li>#}
+{#          <li>#}
+{#              <a href="{% url 'productos:listado_compras' %}">Compras</a>#}
+{#          </li>#}
         </ul>
         </div>
     </nav>
